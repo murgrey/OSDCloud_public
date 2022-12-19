@@ -20,7 +20,7 @@ Import-Module OSD -Force
     ApplyCatalogFirmware = $True
     OSBuild = '22H2' 
     OSName = 'Windows 10 22H2 x64'
-    OSEdition = 'Pro '
+    OSEdition = 'Pro'
     OSEditionId = 8
     OSVersion = 'Windows 10'
     ScreenshotCapture = $True 
@@ -33,7 +33,7 @@ Import-Module OSD -Force
     ApplyCatalogFirmware = $True
     OSBuild = '22H2' 
     OSName = 'Windows 10 22H2 x64'
-    OSEdition = 'Pro '
+    OSEdition = 'Pro'
     OSEditionId = 8
     OSVersion = 'Windows 10'
     ScreenshotCapture = $True 
