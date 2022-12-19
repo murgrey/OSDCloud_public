@@ -28,9 +28,9 @@ Import-Module OSD -Force
  }
 
   $Global:MyOSDCloud = @{
- 	ApplyManufacturerDrivers = $True
-	ApplyCatalogDrivers = $True
-	ApplyCatalogFirmware = $True
+    ApplyManufacturerDrivers = $True
+    ApplyCatalogDrivers = $True
+    ApplyCatalogFirmware = $True
     OSBuild = '22H2' 
     OSName = 'Windows 10 22H2 x64'
     OSEdition = 'Pro '
