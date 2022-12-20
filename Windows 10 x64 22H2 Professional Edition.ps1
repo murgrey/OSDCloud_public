@@ -7,6 +7,20 @@ if ((Get-MyComputerModel) -match 'Virtual') {
     Set-DisRes 1600
 }
 
+# Install Windows 10
+    Start-OSDCloud -ZTI -Screenshot -Firmware -OSLanguage en-us -OSVersion 'Windows 10' -OSBuild '22H2' -OSEdition Pro -OSLicense Volume # -Restart
+
+Write-Host -ForegroundColor Green "Define Computername:"
+$TargetComputername = Get-WmiObject Win32_Bios | Select-Object -ExpandProperty SerialNumber
+
+# Update Windows
+    UpdateWindows
+    Start-Sleep -Seconds 5
+
+# Update Drivers
+    UpdateDrivers
+    Start-Sleep -Seconds 5
+
 Set-ExecutionPolicy -ExecutionPolicy ByPass -Force
 
 Write-Verbose -Verbose 'Install PowerShell Module AutopilotOOBE'
@@ -20,22 +34,9 @@ Write-Verbose 'Run AutopilotOOBE in the new PowerShell window' -Verbose
 Start-Sleep -Seconds 5
 Start-Process PowerShell.exe
 #>
+
 # Begin Autopilot Enrollment
     Get-WindowsAutoPilotInfo -Online 
-    Start-Sleep -Seconds 5
-
-# Install Windows 10
-    Start-OSDCloud -ZTI -Screenshot -Firmware -OSLanguage en-us -OSVersion 'Windows 10' -OSBuild '22H2' -OSEdition Pro -OSLicense Volume # -Restart
-
-Write-Host -ForegroundColor Green "Define Computername:"
-$TargetComputername = Get-WmiObject Win32_Bios | Select-Object -ExpandProperty SerialNumber
-
-# Update Windows
-    UpdateWindows
-    Start-Sleep -Seconds 5
-
-# Update Drivers
-    UpdateDrivers
     Start-Sleep -Seconds 5
 
 #Restart from WinPE
